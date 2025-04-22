@@ -28,7 +28,7 @@ enum charybdis_keymap_layers {
     LAYER_NVIM,
 };
 
-os_variant_t detectedOs = detected_host_os();
+// os_variant_t detectedOs = detected_host_os();
 
 /** \brief Automatically enable sniping-mode on the pointer layer. */
 #define CHARYBDIS_AUTO_SNIPING_ON_LAYER LAYER_POINTER
@@ -50,29 +50,28 @@ static uint16_t auto_pointer_layer_timer = 0;
 #define PT_Z LT(LAYER_POINTER, KC_Z)
 #define PT_SLSH LT(LAYER_POINTER, KC_SLSH)
 #define NVIM MO(LAYER_NVIM)
-#define COPY LCTL(KC_C)
-#define UNDO LCTL(KC_Z)
-#define PASTE LCTL(KC_V)
+// #define COPY LCTL(KC_C)
+// #define UNDO LCTL(KC_Z)
+// #define PASTE LCTL(KC_V)
 
-switch (detected_os) {
-     case OS_MACOS:
-          #define NXT_APP KC_LCTL
-          #define NXT_TAB KC_LGUI
-          break;
-     case OS_WINDOWS:
-          #define NXT_APP KC_LALT
-          #define NXT_TAB KC_LCTL
-          break;
-     case OS_LINUX:
-          #define NXT_APP KC_LALT
-          #define NXT_TAB KC_LCTL
-          break;
-     case OS_UNSURE:
-          #define NXT_APP KC_LALT
-          #define NXT_TAB KC_LCTL
-          break;
-}
-#define NXT_APP 
+// switch (detectedOs) {
+//      case OS_MACOS:
+//           #define NXT_APP KC_LCTL
+//           #define NXT_TAB KC_LGUI
+//           break;
+//      case OS_WINDOWS:
+//           #define NXT_APP KC_LALT
+//           #define NXT_TAB KC_LCTL
+//           break;
+//      case OS_LINUX:
+//           #define NXT_APP KC_LALT
+//           #define NXT_TAB KC_LCTL
+//           break;
+//      case OS_UNSURE:
+//           #define NXT_APP KC_LALT
+//           #define NXT_TAB KC_LCTL
+//           break;
+// }
 
 #ifndef POINTING_DEVICE_ENABLE
 #    define DRGSCRL KC_NO
@@ -93,8 +92,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
        KC_LCTL,    PT_Z,    KC_X,    KC_C,    KC_V,    KC_B,       KC_N,    KC_M, KC_COMM,  KC_DOT, PT_SLSH, KC_LALT,
   // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
-                                     NVIM, KC_LALT, KC_LCTL,      RAISE, KC_LGUI,
-                                             LOWER, KC_LSFT,    KC_LCTL
+                                     NVIM, KC_LALT, KC_LSFT,      RAISE, KC_LGUI,
+                                             LOWER, KC_LCTL,    KC_LCTL
   //                            ╰───────────────────────────╯ ╰──────────────────╯
   ),
 
@@ -147,14 +146,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // ╭──────────────────────────────────────────────────────╮ ╭──────────────────────────────────────────────────────╮
        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       XXXXXXX, XXXXXXX, XXXXXXX,  KC_ESC, XXXXXXX, XXXXXXX,       COPY,    UNDO, XXXXXXX,  KC_ENT,   PASTE, XXXXXXX,
+       XXXXXXX,  KC_ESC, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX,  KC_ENT, XXXXXXX, XXXXXXX,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
        XXXXXXX,  KC_TAB, XXXXXXX, KC_BSPC, XXXXXXX, XXXXXXX,    KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT,  KC_TAB, XXXXXXX,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤ 
        XXXXXXX, XXXXXXX,  KC_DEL,  KC_SPC, KC_LSFT, XXXXXXX,     KC_END, KC_HOME, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
-                                  _______, XXXXXXX, XXXXXXX,    XXXXXXX, NXT_TAB,
-                                           XXXXXXX, XXXXXXX,    NXT_APP
+                                  _______, XXXXXXX, XXXXXXX,    KC_LALT, KC_LGUI,
+                                           XXXXXXX, XXXXXXX,    KC_LCTL
   //                            ╰───────────────────────────╯ ╰──────────────────╯
   ),
 };
