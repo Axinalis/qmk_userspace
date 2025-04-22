@@ -28,6 +28,8 @@ enum charybdis_keymap_layers {
     LAYER_NVIM,
 };
 
+os_variant_t detectedOs = detected_host_os();
+
 /** \brief Automatically enable sniping-mode on the pointer layer. */
 #define CHARYBDIS_AUTO_SNIPING_ON_LAYER LAYER_POINTER
 
@@ -45,11 +47,32 @@ static uint16_t auto_pointer_layer_timer = 0;
 
 #define LOWER MO(LAYER_LOWER)
 #define RAISE MO(LAYER_RAISE)
-#define POINT MO(LAYER_POINTER)
+#define PT_Z LT(LAYER_POINTER, KC_Z)
+#define PT_SLSH LT(LAYER_POINTER, KC_SLSH)
 #define NVIM MO(LAYER_NVIM)
 #define COPY LCTL(KC_C)
 #define UNDO LCTL(KC_Z)
 #define PASTE LCTL(KC_V)
+
+switch (detected_os) {
+     case OS_MACOS:
+          #define NXT_APP KC_LCTL
+          #define NXT_TAB KC_LGUI
+          break;
+     case OS_WINDOWS:
+          #define NXT_APP KC_LALT
+          #define NXT_TAB KC_LCTL
+          break;
+     case OS_LINUX:
+          #define NXT_APP KC_LALT
+          #define NXT_TAB KC_LCTL
+          break;
+     case OS_UNSURE:
+          #define NXT_APP KC_LALT
+          #define NXT_TAB KC_LCTL
+          break;
+}
+#define NXT_APP 
 
 #ifndef POINTING_DEVICE_ENABLE
 #    define DRGSCRL KC_NO
@@ -68,10 +91,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
        KC_LSFT,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,       KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN, KC_QUOT,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       KC_LCTL,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,       KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, KC_LALT,
+       KC_LCTL,    PT_Z,    KC_X,    KC_C,    KC_V,    KC_B,       KC_N,    KC_M, KC_COMM,  KC_DOT, PT_SLSH, KC_LALT,
   // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
-                                     NVIM,   POINT,   LOWER,      RAISE, KC_LGUI,
-                                           KC_LALT, KC_LSFT,    KC_LCTL
+                                     NVIM, KC_LALT, KC_LCTL,      RAISE, KC_LGUI,
+                                             LOWER, KC_LSFT,    KC_LCTL
   //                            ╰───────────────────────────╯ ╰──────────────────╯
   ),
 
@@ -109,14 +132,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // ╭──────────────────────────────────────────────────────╮ ╭──────────────────────────────────────────────────────╮
        QK_BOOT,  EE_CLR, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, QK_BOOT,  EE_CLR,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       XXXXXXX, KC_LGUI, KC_LALT, KC_LCTL, DPI_MOD, S_D_MOD,    S_D_MOD, DPI_MOD, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, DPI_MOD, S_D_MOD,    S_D_MOD, DPI_MOD, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       XXXXXXX, XXXXXXX, MS_BTN3, MS_BTN2, MS_BTN1, KC_LSFT,    XXXXXXX, KC_RSFT, KC_RCTL, KC_RALT, KC_RGUI, XXXXXXX,
+       XXXXXXX, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXXXXXX,    XXXXXXX, KC_RSFT, KC_RCTL, KC_RALT, KC_RGUI, XXXXXXX,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       XXXXXXX, XXXXXXX, DRGSCRL, SNIPING, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, SNIPING, DRGSCRL, XXXXXXX, XXXXXXX,
+       XXXXXXX, _______, DRGSCRL, SNIPING, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, SNIPING, DRGSCRL, _______, XXXXXXX,
   // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
-                                  XXXXXXX, _______, XXXXXXX,    XXXXXXX, XXXXXXX,
-                                           XXXXXXX, XXXXXXX,    XXXXXXX
+                                  KC_BTN2, KC_BTN1, KC_BTN3,    KC_BTN3, KC_BTN1,
+                                           XXXXXXX, KC_BTN2,    KC_BTN2
   //                            ╰───────────────────────────╯ ╰──────────────────╯
   ),
 
@@ -126,14 +149,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
        XXXXXXX, XXXXXXX, XXXXXXX,  KC_ESC, XXXXXXX, XXXXXXX,       COPY,    UNDO, XXXXXXX,  KC_ENT,   PASTE, XXXXXXX,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       XXXXXXX,  KC_TAB, KC_BTN2, KC_BSPC, KC_BTN1, XXXXXXX,    KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT, XXXXXXX, XXXXXXX,
-  // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
+       XXXXXXX,  KC_TAB, XXXXXXX, KC_BSPC, XXXXXXX, XXXXXXX,    KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT,  KC_TAB, XXXXXXX,
+  // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤ 
        XXXXXXX, XXXXXXX,  KC_DEL,  KC_SPC, KC_LSFT, XXXXXXX,     KC_END, KC_HOME, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
-                                  _______, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX,
-                                           XXXXXXX, XXXXXXX,    XXXXXXX
+                                  _______, XXXXXXX, XXXXXXX,    XXXXXXX, NXT_TAB,
+                                           XXXXXXX, XXXXXXX,    NXT_APP
   //                            ╰───────────────────────────╯ ╰──────────────────╯
-     ),
+  ),
 };
 // clang-format on
 
