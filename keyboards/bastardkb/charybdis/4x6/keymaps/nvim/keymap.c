@@ -23,9 +23,7 @@
 enum charybdis_keymap_layers {
     LAYER_BASE = 0,
     LAYER_LOWER,
-    LAYER_RAISE,
     LAYER_POINTER,
-    LAYER_NVIM,
 };
 
 // os_variant_t detectedOs = detected_host_os();
