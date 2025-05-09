@@ -46,6 +46,11 @@ static uint16_t auto_pointer_layer_timer = 0;
 #define BASEL TO(LAYER_BASE)
 #define LOWERL TT(LAYER_LOWER)
 #define POINTL TT(LAYER_POINTER)
+
+// Redefining TAPPING_TOGGLE
+#ifdef TAPPING_TOGGLE
+     #undef TAPPING_TOGGLE
+#endif
 #define TAPPING_TOGGLE 2
 
 #ifndef POINTING_DEVICE_ENABLE
