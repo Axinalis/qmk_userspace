@@ -43,9 +43,9 @@ static uint16_t auto_pointer_layer_timer = 0;
 #    endif // CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_THRESHOLD
 #endif     // CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_ENABLE
 
-#define BASEL TO(LAYER_BASE)
+#define BASEL TG(LAYER_BASE)
 #define LOWERL MO(LAYER_LOWER)
-#define POINTL TO(LAYER_POINTER)
+#define POINTL TG(LAYER_POINTER)
 
 #ifndef POINTING_DEVICE_ENABLE
 #    define DRGSCRL KC_NO
@@ -81,7 +81,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
        XXXXXXX,  KC_NUM, KC_LBRC,  KC_SPC, KC_RBRC, XXXXXXX,       KC_0,    KC_1,    KC_2,    KC_3, KC_BSLS, XXXXXXX,
   // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
-                                   POINTL, KC_LSFT,   BASEL,    _______, KC_LGUI,
+                                  XXXXXXX, KC_LSFT, XXXXXXX,    _______, KC_LGUI,
                                            KC_LCTL, KC_LALT,    KC_LCTL
   //                            ╰───────────────────────────╯ ╰──────────────────╯
   ),
@@ -96,7 +96,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
        XXXXXXX, XXXXXXX, DRGSCRL, SNIPING, XXXXXXX, XXXXXXX,    KC_HOME, KC_PGDN, KC_PGUP,  KC_END, XXXXXXX, XXXXXXX,
   // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
-                                  _______, KC_LSFT,   BASEL,     LOWERL, KC_LGUI,
+                                  _______, KC_LSFT, XXXXXXX,    XXXXXXX, KC_LGUI,
                                            KC_LCTL, KC_LALT,    KC_LCTL
   //                            ╰───────────────────────────╯ ╰──────────────────╯
   ),
