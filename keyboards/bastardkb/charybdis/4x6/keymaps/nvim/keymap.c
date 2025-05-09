@@ -44,14 +44,8 @@ static uint16_t auto_pointer_layer_timer = 0;
 #endif     // CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_ENABLE
 
 #define BASEL TO(LAYER_BASE)
-#define LOWERL TT(LAYER_LOWER)
-#define POINTL TT(LAYER_POINTER)
-
-// Redefining TAPPING_TOGGLE
-#ifdef TAPPING_TOGGLE
-     #undef TAPPING_TOGGLE
-#endif
-#define TAPPING_TOGGLE 2
+#define LOWERL MO(LAYER_LOWER)
+#define POINTL TO(LAYER_POINTER)
 
 #ifndef POINTING_DEVICE_ENABLE
 #    define DRGSCRL KC_NO
