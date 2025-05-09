@@ -66,7 +66,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
        XXXXXXX,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,       KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, XXXXXXX,
   // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
-                                   POINTL, KC_LSFT, _______,     LOWERL, KC_LGUI,
+                                   POINTL, KC_LSFT, XXXXXXX,     LOWERL, KC_LGUI,
                                            KC_LCTL, KC_LALT,    KC_LCTL
   //                            ╰───────────────────────────╯ ╰──────────────────╯
   ),
@@ -96,7 +96,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
        XXXXXXX, XXXXXXX, DRGSCRL, SNIPING, XXXXXXX, XXXXXXX,    KC_HOME, KC_PGDN, KC_PGUP,  KC_END, XXXXXXX, XXXXXXX,
   // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
-                                  _______, KC_LSFT, XXXXXXX,    XXXXXXX, KC_LGUI,
+                                   POINTL, KC_LSFT, XXXXXXX,    XXXXXXX, KC_LGUI,
                                            KC_LCTL, KC_LALT,    KC_LCTL
   //                            ╰───────────────────────────╯ ╰──────────────────╯
   ),
