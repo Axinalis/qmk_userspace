@@ -66,7 +66,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
        XXXXXXX,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,       KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, XXXXXXX,
   // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
-                                   POINTL, KC_LSFT, XXXXXXX,     LOWERL, KC_LGUI,
+                                  XXXXXXX, KC_LSFT,  POINTL,     LOWERL, KC_LGUI,
                                            KC_LCTL, KC_LALT,    KC_LCTL
   //                            ╰───────────────────────────╯ ╰──────────────────╯
   ),
@@ -75,13 +75,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // ╭──────────────────────────────────────────────────────╮ ╭──────────────────────────────────────────────────────╮
        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       XXXXXXX,  KC_GRV, XXXXXXX,  KC_TAB, KC_MINS, XXXXXXX,    KC_MINS,    KC_7,    KC_8,    KC_9,    KC_0, XXXXXXX,
+       XXXXXXX,  KC_GRV, XXXXXXX,  KC_TAB, KC_MINS, XXXXXXX,    XXXXXXX,    KC_7,    KC_8,    KC_9, XXXXXXX, XXXXXXX,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
        XXXXXXX, QK_LLCK, KC_BSPC,  KC_ENT,  KC_DEL, XXXXXXX,     KC_EQL,    KC_4,    KC_5,    KC_6, KC_QUOT, XXXXXXX,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
        XXXXXXX,  KC_NUM, KC_LBRC,  KC_SPC, KC_RBRC, XXXXXXX,       KC_0,    KC_1,    KC_2,    KC_3, KC_BSLS, XXXXXXX,
   // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
-                                  _______, _______, QK_LLCK,    _______, _______,
+                                  QK_LLCK, _______, XXXXXXX,    _______, _______,
                                            _______, _______,    _______
   //                            ╰───────────────────────────╯ ╰──────────────────╯
   ),
@@ -90,13 +90,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // ╭──────────────────────────────────────────────────────╮ ╭──────────────────────────────────────────────────────╮
        QK_BOOT,  EE_CLR, XXXXXXX, XXXXXXX, DPI_MOD, S_D_MOD,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, QK_BOOT,  EE_CLR,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       XXXXXXX,  KC_ESC, KC_BTN2, KC_BTN3, KC_BTN1, XXXXXXX,    MS_WHLL, MS_WHLD, MS_WHLU, MS_WHLR, KC_BTN3, XXXXXXX,
+       XXXXXXX,  KC_ESC, KC_PSCR,  KC_TAB, XXXXXXX, DRGSCRL,   MS_WHLL, MS_WHLD, MS_WHLU, MS_WHLR, KC_BTN3, XXXXXXX,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       XXXXXXX, QK_LLCK, KC_BSPC,  KC_ENT,  KC_DEL,  KC_TAB,    KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT, KC_BTN1, XXXXXXX,
+       XXXXXXX, QK_LLCK, KC_BSPC,  KC_ENT,  KC_DEL, XXXXXXX,    KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT, KC_BTN1, XXXXXXX,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       XXXXXXX,    KC_0, DRGSCRL, SNIPING, KC_LSFT, XXXXXXX,    KC_HOME, KC_PGDN, KC_PGUP,  KC_END, KC_BTN2, XXXXXXX,
+       XXXXXXX, SNIPING, KC_BTN2, KC_BTN3, KC_BTN1, KC_LSFT,    KC_HOME, KC_PGDN, KC_PGUP,  KC_END, KC_BTN2, XXXXXXX,
   // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
-                                  _______, _______, QK_LLCK,    XXXXXXX, _______,
+                                  QK_LLCK, _______, _______,    XXXXXXX, _______,
                                            _______, _______,    _______
   //                            ╰───────────────────────────╯ ╰──────────────────╯
   ),
