@@ -46,6 +46,8 @@ static uint16_t auto_pointer_layer_timer = 0;
 //#define BASEL TG(LAYER_BASE)
 #define LOWERL MO(LAYER_LOWER)
 #define POINTL MO(LAYER_POINTER)
+#define SUPER_M LT(KC_LGUI, KC_M)
+#define SUPER_V LT(KC_LGUI, KC_V)
 
 #ifndef POINTING_DEVICE_ENABLE
 #    define DRGSCRL KC_NO
@@ -64,10 +66,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
         KC_TAB,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,       KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN,  KC_SPC,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       KC_LEFT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,       KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, KC_RGHT,
+       KC_LEFT,    KC_Z,    KC_X,    KC_C, SUPER_V,    KC_B,       KC_N, SUPER_M, KC_COMM,  KC_DOT, KC_SLSH, KC_RGHT,
   // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
-                                  KC_LSFT,  POINTL, XXXXXXX,     LOWERL, KC_LGUI,
-                                           KC_LCTL, KC_LALT,    KC_LCTL
+                                  KC_LSFT,  POINTL, KC_LALT,     LOWERL, KC_LCTL,
+                                           XXXXXXX, XXXXXXX,    XXXXXXX
   //                            ╰───────────────────────────╯ ╰──────────────────╯
   ),
 
@@ -75,14 +77,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // ╭──────────────────────────────────────────────────────╮ ╭──────────────────────────────────────────────────────╮
        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       XXXXXXX,  KC_GRV, XXXXXXX,  KC_TAB, KC_MINS, XXXXXXX,    XXXXXXX,    KC_7,    KC_8,    KC_9, XXXXXXX, XXXXXXX,
+       QK_LLCK,  KC_GRV, XXXXXXX, XXXXXXX, KC_MINS, XXXXXXX,    XXXXXXX,    KC_7,    KC_8,    KC_9, XXXXXXX, XXXXXXX,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
        _______, QK_LLCK, KC_BSPC,  KC_ENT,  KC_DEL, XXXXXXX,     KC_EQL,    KC_4,    KC_5,    KC_6, KC_QUOT, _______,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       _______,  KC_NUM, KC_LBRC,  KC_SPC, KC_RBRC, XXXXXXX,       KC_0,    KC_1,    KC_2,    KC_3, KC_BSLS, _______,
+       _______,  KC_NUM, KC_LBRC, XXXXXXX, KC_RBRC, XXXXXXX,       KC_0,    KC_1,    KC_2,    KC_3, KC_BSLS, _______,
   // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
-                                  _______, XXXXXXX, QK_LLCK,    _______, _______,
-                                           _______, _______,    _______
+                                  _______, XXXXXXX, _______,    _______, _______,
+                                           XXXXXXX, XXXXXXX,    XXXXXXX
   //                            ╰───────────────────────────╯ ╰──────────────────╯
   ),
 
@@ -90,14 +92,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // ╭──────────────────────────────────────────────────────╮ ╭──────────────────────────────────────────────────────╮
        QK_BOOT,  EE_CLR, XXXXXXX, XXXXXXX, DPI_MOD, S_D_MOD,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, QK_BOOT,  EE_CLR,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       XXXXXXX,  KC_ESC, KC_PSCR,  KC_TAB, XXXXXXX, DRGSCRL,    MS_WHLL, MS_WHLD, MS_WHLU, MS_WHLR, KC_BTN3, XXXXXXX,
+       QK_LLCK,  KC_ESC, KC_PSCR, XXXXXXX, XXXXXXX, DRGSCRL,    MS_WHLL, MS_WHLD, MS_WHLU, MS_WHLR, XXXXXXX, XXXXXXX,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       _______, QK_LLCK, KC_BSPC,  KC_ENT,  KC_DEL, XXXXXXX,    KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT, KC_BTN1, _______,
+       _______, QK_LLCK, KC_BSPC,  KC_ENT,  KC_DEL, SNIPING,    KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT, KC_LGUI, _______,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       _______, SNIPING, KC_BTN2, KC_BTN3, KC_BTN1, KC_LSFT,    KC_HOME, KC_PGDN, KC_PGUP,  KC_END, KC_BTN2, _______,
+       _______, KC_LSFT, KC_BTN2, KC_BTN3, KC_BTN1, XXXXXXX,    KC_HOME, KC_PGDN, KC_PGUP,  KC_END, KC_LCTL, _______,
   // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
-                                  _______, _______, QK_LLCK,    XXXXXXX, _______,
-                                           _______, _______,    _______
+                                  _______, _______, _______,    XXXXXXX, _______,
+                                           XXXXXXX, XXXXXXX,    XXXXXXX
   //                            ╰───────────────────────────╯ ╰──────────────────╯
   ),
 };
