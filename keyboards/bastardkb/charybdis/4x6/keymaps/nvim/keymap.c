@@ -46,8 +46,8 @@ static uint16_t auto_pointer_layer_timer = 0;
 //#define BASEL TG(LAYER_BASE)
 #define LOWERL MO(LAYER_LOWER)
 #define POINTL MO(LAYER_POINTER)
-#define SUPER_M LT(KC_LGUI, KC_M)
-#define SUPER_V LT(KC_LGUI, KC_V)
+#define SUPER_M LGUI_T(KC_M)
+#define SUPER_V LGUI_T(KC_V)
 
 #ifndef POINTING_DEVICE_ENABLE
 #    define DRGSCRL KC_NO
