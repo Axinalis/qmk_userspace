@@ -29,7 +29,7 @@ enum charybdis_keymap_layers {
 // os_variant_t detectedOs = detected_host_os();
 
 /** \brief Automatically enable sniping-mode on the pointer layer. */
-#define CHARYBDIS_AUTO_SNIPING_ON_LAYER LAYER_POINTER
+//#define CHARYBDIS_AUTO_SNIPING_ON_LAYER LAYER_POINTER
 
 #ifdef CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_ENABLE
 static uint16_t auto_pointer_layer_timer = 0;
@@ -46,8 +46,6 @@ static uint16_t auto_pointer_layer_timer = 0;
 //#define BASEL TG(LAYER_BASE)
 #define LOWERL MO(LAYER_LOWER)
 #define POINTL MO(LAYER_POINTER)
-#define SUPER_M LGUI_T(KC_M)
-#define SUPER_V LGUI_T(KC_V)
 
 #ifndef POINTING_DEVICE_ENABLE
 #    define DRGSCRL KC_NO
@@ -66,7 +64,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
         KC_TAB,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,       KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN,  KC_SPC,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       KC_LEFT,    KC_Z,    KC_X,    KC_C, SUPER_V,    KC_B,       KC_N, SUPER_M, KC_COMM,  KC_DOT, KC_SLSH, KC_RGHT,
+       KC_LGUI,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,       KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, KC_LGUI,
   // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
                                   KC_LSFT,  POINTL, KC_LALT,     LOWERL, KC_LCTL,
                                            XXXXXXX, XXXXXXX,    XXXXXXX
@@ -92,11 +90,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // ╭──────────────────────────────────────────────────────╮ ╭──────────────────────────────────────────────────────╮
        QK_BOOT,  EE_CLR, XXXXXXX, XXXXXXX, DPI_MOD, S_D_MOD,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, QK_BOOT,  EE_CLR,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       QK_LLCK,  KC_ESC, KC_PSCR, XXXXXXX, XXXXXXX, DRGSCRL,    MS_WHLL, MS_WHLD, MS_WHLU, MS_WHLR, XXXXXXX, XXXXXXX,
+       QK_LLCK,  KC_ESC, KC_PSCR, KC_BTN7, KC_BTN6, DRGSCRL,    MS_WHLL, MS_WHLD, MS_WHLU, MS_WHLR, KC_BTN8, XXXXXXX,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       _______, QK_LLCK, KC_BSPC,  KC_ENT,  KC_DEL, SNIPING,    KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT, KC_LGUI, _______,
+       _______, QK_LLCK, KC_BSPC,  KC_ENT,  KC_DEL, KC_BTN5,    KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT, XXXXXXX, _______,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       _______, KC_LSFT, KC_BTN2, KC_BTN3, KC_BTN1, XXXXXXX,    KC_HOME, KC_PGDN, KC_PGUP,  KC_END, KC_LCTL, _______,
+       _______, SNIPING, KC_BTN2, KC_BTN3, KC_BTN1, KC_BTN4,    KC_HOME, KC_PGDN, KC_PGUP,  KC_END, XXXXXXX, _______,
   // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
                                   _______, _______, _______,    XXXXXXX, _______,
                                            XXXXXXX, XXXXXXX,    XXXXXXX
